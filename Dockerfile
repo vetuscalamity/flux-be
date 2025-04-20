@@ -12,7 +12,7 @@ RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git .
 
 # 5. Model klasörü oluştur ve Flux modelini indir
 RUN mkdir -p /app/models/Stable-diffusion && \
-    wget -O /app/models/Stable-diffusion/flux-v3.safetensors https://huggingface.co/SimianLuo/Flux-V3/resolve/main/flux-v3.safetensors
+    curl -L -o /app/models/Stable-diffusion/flux-v3.safetensors https://huggingface.co/SimianLuo/Flux-V3/resolve/main/flux-v3.safetensors
 
 # 6. Python bağımlılıklarını kur
 RUN pip install -r requirements.txt
