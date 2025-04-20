@@ -18,8 +18,11 @@ RUN mkdir -p /app/models/Stable-diffusion && \
 # 6. Python bağımlılıklarını yükle
 RUN pip install -r requirements.txt
 
-# 7. Torch GPU check kapat
-ENV COMMANDLINE_ARGS="--listen --port 10000 --api --xformers --skip-torch-cuda-test"
+# 7. Torch GPU check kapat + API aktif et
+ENV COMMANDLINE_ARGS="--listen --api --xformers --skip-torch-cuda-test"
 
-# 8. Servisi başlat
+# 8. Render'ın portu algılaması için
+EXPOSE 10000
+
+# 9. Servisi başlat
 CMD ["python", "launch.py"]
